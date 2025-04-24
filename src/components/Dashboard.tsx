@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+//@ts-ignore
 import moment from "moment-jalaali";
 import { Car } from "../types/Car";
 import PlateForm from "./PlateForm";
