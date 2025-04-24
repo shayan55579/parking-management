@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import LoginPage from "./components/LoginPage";
 
 function App() {
- 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-700 text-white text-3xl font-bold">
-      ✅ Tailwind is working!
-    </div>
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  return loggedIn ? (
+    <div className="text-center text-2xl text-green-600 mt-20 font-bold">🎉 Logged in!</div>
+  ) : (
+    <LoginPage onLogin={() => setLoggedIn(true)} />
   );
 }
 
-export default App
+export default App;
