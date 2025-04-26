@@ -3,11 +3,11 @@ import { Car } from "../types/Car";
 
 interface CarsTableProps {
   cars: Car[];
-  onExit: (id: number) => void; // Function to handle exiting car
+  onExit: (id: number) => void;
 }
 
 const CarsTable: React.FC<CarsTableProps> = ({ cars, onExit }) => {
-  
+
   const formatPlate = (plate: string): string => {
     if (plate.length < 8) return plate;
     const part1 = plate.slice(0, 2);
@@ -26,12 +26,13 @@ const CarsTable: React.FC<CarsTableProps> = ({ cars, onExit }) => {
             <th className="p-3 border">ورود</th>
             <th className="p-3 border">خروج</th>
             <th className="p-3 border">مدت</th>
-            <th className="p-3 border">عملیات</th> {/* new: operation column */}
+            <th className="p-3 border">هزینه</th> {/* <-- New Fee Column */}
+            <th className="p-3 border">عملیات</th>
           </tr>
         </thead>
         <tbody>
-          {cars.map((car, idx) => (
-            <tr key={idx} className="even:bg-gray-100 odd:bg-white">
+          {cars.map((car) => (
+            <tr key={car.id} className="even:bg-gray-100 odd:bg-white">
               <td className="p-3 border font-bold text-lg">
                 <div className="inline-block bg-gray-100 rounded-md px-3 py-1">
                   {formatPlate(car.plate)}
@@ -40,6 +41,7 @@ const CarsTable: React.FC<CarsTableProps> = ({ cars, onExit }) => {
               <td className="p-3 border">{car.entryTime}</td>
               <td className="p-3 border">{car.exitTime || "-"}</td>
               <td className="p-3 border">{car.duration || "در حال پارک"}</td>
+              <td className="p-3 border">{car.fee || "-"}</td> {/* <-- Show fee here */}
               <td className="p-3 border">
                 {!car.exitTime && (
                   <button
