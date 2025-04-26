@@ -14,13 +14,26 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
-        {/* Header Navigation */}
-        <nav className="bg-indigo-600 p-4 text-white flex justify-center gap-8">
-          <Link to="/" className="hover:underline">خانه</Link>
-          <Link to="/report" className="hover:underline">گزارش</Link>
+        
+        {/* 🌟 Beautiful Header */}
+        <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 p-4 shadow-lg">
+          <div className="flex justify-center items-center space-x-8 rtl:space-x-reverse">
+            <Link
+              to="/"
+              className="text-white text-lg font-bold hover:text-yellow-300 transition duration-300 transform hover:scale-110"
+            >
+              🏠 خانه
+            </Link>
+            <Link
+              to="/report"
+              className="text-white text-lg font-bold hover:text-yellow-300 transition duration-300 transform hover:scale-110"
+            >
+              📋 گزارش
+            </Link>
+          </div>
         </nav>
 
-        {/* Pages */}
+        {/* Routes */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/report" element={<ReportPage />} />
