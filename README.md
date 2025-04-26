@@ -31,3 +31,9 @@ src/
 ├── index.css             # Global styles + RTL direction + font
 └── react-app-env.d.ts
 ```
+```bash
+npm install framer-motion
+npm install file-saver
+npm install react-router-dom
+npm install --save-dev @types/file-saver
+```
